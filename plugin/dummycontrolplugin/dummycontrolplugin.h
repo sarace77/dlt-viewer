@@ -32,6 +32,7 @@ class DummyControlPlugin : public QObject, QDLTPluginInterface, QDltPluginViewer
     Q_INTERFACES(QDLTPluginInterface)
     Q_INTERFACES(QDltPluginViewerInterface)
     Q_INTERFACES(QDltPluginControlInterface)
+    Q_PLUGIN_METADATA(IID "org.genivi.DLT.Plugin.DLTPluginInterface.DummyControlPlugin");
 
 public:
     DummyControlPlugin();

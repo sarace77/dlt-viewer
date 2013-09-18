@@ -31,6 +31,7 @@ class DltViewerPlugin : public QObject, QDLTPluginInterface, QDltPluginViewerInt
     Q_OBJECT
     Q_INTERFACES(QDLTPluginInterface)
     Q_INTERFACES(QDltPluginViewerInterface)
+    Q_PLUGIN_METADATA(IID "org.genivi.DLT.Plugin.DLTPluginInterface.DltViewerPlugin");
 
 public:
     DltViewerPlugin();

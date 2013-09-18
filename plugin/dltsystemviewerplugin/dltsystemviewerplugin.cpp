@@ -178,4 +178,4 @@ void DltSystemViewerPlugin::updateProcesses(int index, QDltMsg &msg)
 
 }
 
-Q_EXPORT_PLUGIN2(dltsystemviewerplugin, DltSystemViewerPlugin);
+//Q_EXPORT_PLUGIN2(dltsystemviewerplugin, DltSystemViewerPlugin);

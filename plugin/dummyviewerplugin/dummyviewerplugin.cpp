@@ -159,4 +159,4 @@ void DummyViewerPlugin::updateFileFinish(){
     form->setNonVerboseMessages(counterNonVerboseMessages);
 }
 
-Q_EXPORT_PLUGIN2(dummyviewerplugin, DummyViewerPlugin);
+//Q_EXPORT_PLUGIN2(dummyviewerplugin, DummyViewerPlugin);

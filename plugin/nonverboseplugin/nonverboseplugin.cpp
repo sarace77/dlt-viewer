@@ -18,6 +18,7 @@
  */
 
 #include <QtGui>
+#include <QtWidgets/QMessageBox>
 
 #include "nonverboseplugin.h"
 
@@ -520,4 +521,4 @@ bool NonverbosePlugin::decodeMsg(QDltMsg &msg, int triggeredByUser)
     return true;
 }
 
-Q_EXPORT_PLUGIN2(nonverboseplugin, NonverbosePlugin);
+//Q_EXPORT_PLUGIN2(nonverboseplugin, NonverbosePlugin);

@@ -21,6 +21,8 @@
 #include "filetransferplugin.h"
 #include "file.h"
 #include <QDir>
+#include <QtWidgets/QMessageBox>
+#include <QApplication>
 
 FiletransferPlugin::FiletransferPlugin() {
     dltFile = 0;
@@ -400,4 +402,4 @@ bool FiletransferPlugin::exportAll(QString path)
     return ret;
 }
 
-Q_EXPORT_PLUGIN2(filetransferplugin, FiletransferPlugin)
+//Q_EXPORT_PLUGIN2(filetransferplugin, FiletransferPlugin)

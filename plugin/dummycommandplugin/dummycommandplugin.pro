@@ -15,3 +15,4 @@ SOURCES += \
 # plugin forms
 FORMS +=
 
+QT += widgets

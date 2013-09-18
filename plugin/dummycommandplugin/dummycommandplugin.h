@@ -30,6 +30,7 @@ class DummyCommandPlugin : public QObject, QDLTPluginInterface, QDltPluginComman
     Q_OBJECT
     Q_INTERFACES(QDLTPluginInterface)
     Q_INTERFACES(QDltPluginCommandInterface)
+    Q_PLUGIN_METADATA(IID "org.genivi.DLT.Plugin.DLTPluginInterface.DltViewerPlugin");
 
 public:
     DummyCommandPlugin();

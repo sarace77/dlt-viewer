@@ -148,4 +148,4 @@ void DummyControlPlugin::updateFileFinish(){
 
 }
 
-Q_EXPORT_PLUGIN2(dummycontrolplugin, DummyControlPlugin);
+//Q_EXPORT_PLUGIN2(dummycontrolplugin, DummyControlPlugin);

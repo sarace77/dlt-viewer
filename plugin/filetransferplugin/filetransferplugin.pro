@@ -29,3 +29,4 @@ FORMS += \
     imagepreviewdialog.ui \
     textviewdialog.ui
 
+QT += widgets printsupport

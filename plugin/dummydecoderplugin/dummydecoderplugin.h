@@ -30,6 +30,8 @@ class DummyDecoderPlugin : public QObject, QDLTPluginInterface, QDLTPluginDecode
     Q_OBJECT
     Q_INTERFACES(QDLTPluginInterface)
     Q_INTERFACES(QDLTPluginDecoderInterface)
+    Q_PLUGIN_METADATA(IID "org.genivi.DLT.Plugin.DLTPluginInterface.DummyDecoderPlugin");
+
 
 public:
     DummyDecoderPlugin();

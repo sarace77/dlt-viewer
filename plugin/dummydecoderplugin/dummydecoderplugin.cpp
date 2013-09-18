@@ -84,4 +84,4 @@ bool DummyDecoderPlugin::decodeMsg(QDltMsg &msg, int triggeredByUser)
     return false;
 }
 
-Q_EXPORT_PLUGIN2(dummydecoderplugin, DummyDecoderPlugin);
+//Q_EXPORT_PLUGIN2(dummydecoderplugin, DummyDecoderPlugin);

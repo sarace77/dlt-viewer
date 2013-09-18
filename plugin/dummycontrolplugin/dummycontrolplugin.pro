@@ -17,3 +17,5 @@ SOURCES += \
 # plugin forms
 FORMS += \
     form.ui
+
+QT += widgets

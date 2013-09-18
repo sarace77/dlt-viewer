@@ -343,4 +343,4 @@ void DltViewerPlugin::printStatistics() {
 }
 
 
-Q_EXPORT_PLUGIN2(dltviewerplugin, DltViewerPlugin);
+//Q_EXPORT_PLUGIN2(dltviewerplugin, DltViewerPlugin);

@@ -18,3 +18,5 @@ FORMS +=
 # other files
 OTHER_FILES += \
     dlt-example-non-verbose-1.xml
+
+QT += widgets

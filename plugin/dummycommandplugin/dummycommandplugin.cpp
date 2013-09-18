@@ -20,7 +20,8 @@
 #include <QtGui>
 
 #include "dummycommandplugin.h"
-#include <QtConcurrentRun>
+#include <QApplication>
+#include <QtConcurrent/QtConcurrentRun>
 #include <QThread>
 
 DummyCommandPlugin::DummyCommandPlugin()
@@ -105,4 +106,4 @@ bool DummyCommandPlugin::command(QString command, QList<QString> params)
     return true;
 }
 
-Q_EXPORT_PLUGIN2(dummycommandplugin, DummyCommandPlugin)
+//Q_EXPORT_PLUGIN2(dummycommandplugin, DummyCommandPlugin)

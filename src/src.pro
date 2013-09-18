@@ -29,7 +29,7 @@ CONFIG(debug, debug|release) {
     LIBS += -lqextserialport -lqdlt
 }
 
-QT += core gui network
+QT += core gui network widgets
 OBJECTS_DIR = obj
 MOC_DIR = moc
 

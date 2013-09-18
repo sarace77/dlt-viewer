@@ -17,7 +17,7 @@
  * @licence end@
  */
 
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QModelIndex>
 
 #include "mainwindow.h"

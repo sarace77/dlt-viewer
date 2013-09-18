@@ -351,7 +351,7 @@ void MainWindow::commandLineConvertToASCII(){
         text += "\n";
 
         /* write to file */
-        asciiFile.write(text.toAscii().constData());
+        asciiFile.write(text.toLatin1().constData());
 
     }
 
@@ -534,7 +534,7 @@ void MainWindow::on_action_menuFile_Import_DLT_Stream_triggered()
     dlt_file_init(&importfile,0);
 
     /* open DLT stream file */
-    dlt_file_open(&importfile,fileName.toAscii(),0);
+    dlt_file_open(&importfile,fileName.toLatin1(),0);
 
     /* parse and build index of complete log file and show progress */
     while (dlt_file_read_raw(&importfile,false,0)>=0)
@@ -576,7 +576,7 @@ void MainWindow::on_action_menuFile_Import_DLT_Stream_with_Serial_Header_trigger
     dlt_file_init(&importfile,0);
 
     /* open DLT stream file */
-    dlt_file_open(&importfile,fileName.toAscii(),0);
+    dlt_file_open(&importfile,fileName.toLatin1(),0);
 
     /* parse and build index of complete log file and show progress */
     while (dlt_file_read_raw(&importfile,true,0)>=0)
@@ -620,7 +620,7 @@ void MainWindow::on_action_menuFile_Append_DLT_File_triggered()
     int num = 0;
 
     /* open DLT log file with same filename as output file */
-    if (dlt_file_open(&importfile,fileName.toAscii() ,0)<0)
+    if (dlt_file_open(&importfile,fileName.toLatin1() ,0)<0)
     {
         return;
     }
@@ -706,7 +706,7 @@ void MainWindow::on_action_menuFile_Export_ASCII_triggered()
         text += "\n";
 
         /* write to file */
-        outfile.write(text.toAscii().constData());
+        outfile.write(text.toLatin1().constData());
 
     }
 
@@ -800,7 +800,7 @@ void MainWindow::exportSelection(bool ascii = true,bool file = false)
                 if(file)
                 {
                     // write to file
-                    outfile.write(text.toAscii().constData());
+                    outfile.write(text.toLatin1().constData());
                 }
                 else
                 {
@@ -2299,9 +2299,9 @@ void MainWindow::read(EcuItem* ecuitem)
             str.ecu[3]=0;
             /* prepare storage header */
             if (!qmsg.getEcuid().isEmpty())
-               dlt_set_id(str.ecu,qmsg.getEcuid().toAscii());
+               dlt_set_id(str.ecu,qmsg.getEcuid().toLatin1());
             else
-                dlt_set_id(str.ecu,ecuitem->id.toAscii());
+                dlt_set_id(str.ecu,ecuitem->id.toLatin1());
 
             /* check if message is matching the filter */
             if (outputfile.isOpen())
@@ -2657,7 +2657,7 @@ void MainWindow::controlMessage_SendControlMessage(EcuItem* ecuitem,DltMessage &
 
     /* prepare storage header */
     msg.storageheader = (DltStorageHeader*)msg.headerbuffer;
-    dlt_set_storageheader(msg.storageheader,ecuitem->id.toAscii());
+    dlt_set_storageheader(msg.storageheader,ecuitem->id.toLatin1());
 
     /* prepare standard header */
     msg.standardheader = (DltStandardHeader*)(msg.headerbuffer + sizeof(DltStorageHeader));
@@ -2670,7 +2670,7 @@ void MainWindow::controlMessage_SendControlMessage(EcuItem* ecuitem,DltMessage &
     msg.standardheader->mcnt = 0;
 
     /* Set header extra parameters */
-    dlt_set_id(msg.headerextra.ecu,ecuitem->id.toAscii());
+    dlt_set_id(msg.headerextra.ecu,ecuitem->id.toLatin1());
     msg.headerextra.tmsp = dlt_uptime();
 
     /* Copy header extra parameters to headerbuffer */
@@ -2686,7 +2686,7 @@ void MainWindow::controlMessage_SendControlMessage(EcuItem* ecuitem,DltMessage &
     }
     else
     {
-        dlt_set_id(msg.extendedheader->apid, appid.toAscii());
+        dlt_set_id(msg.extendedheader->apid, appid.toLatin1());
     }
     if (contid.isEmpty())
     {
@@ -2694,7 +2694,7 @@ void MainWindow::controlMessage_SendControlMessage(EcuItem* ecuitem,DltMessage &
     }
     else
     {
-        dlt_set_id(msg.extendedheader->ctid, contid.toAscii());
+        dlt_set_id(msg.extendedheader->ctid, contid.toLatin1());
     }
 
     /* prepare length information */
@@ -2900,8 +2900,8 @@ void MainWindow::controlMessage_SetLogLevel(EcuItem* ecuitem, QString app, QStri
     DltServiceSetLogLevel *req;
     req = (DltServiceSetLogLevel*) msg.databuffer;
     req->service_id = DLT_SERVICE_ID_SET_LOG_LEVEL;
-    dlt_set_id(req->apid,app.toAscii());
-    dlt_set_id(req->ctid,con.toAscii());
+    dlt_set_id(req->apid,app.toLatin1());
+    dlt_set_id(req->ctid,con.toLatin1());
     req->log_level = log_level;
     dlt_set_id(req->com,"remo");
 
@@ -2950,8 +2950,8 @@ void MainWindow::controlMessage_SetTraceStatus(EcuItem* ecuitem,QString app, QSt
     DltServiceSetLogLevel *req;
     req = (DltServiceSetLogLevel*) msg.databuffer;
     req->service_id = DLT_SERVICE_ID_SET_TRACE_STATUS;
-    dlt_set_id(req->apid,app.toAscii());
-    dlt_set_id(req->ctid,con.toAscii());
+    dlt_set_id(req->apid,app.toLatin1());
+    dlt_set_id(req->ctid,con.toLatin1());
     req->log_level = status;
     dlt_set_id(req->com,"remo");
 

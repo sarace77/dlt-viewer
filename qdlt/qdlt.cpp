@@ -23,7 +23,7 @@
 #include <QFile>
 #include <QtDebug>
 #include <QThread>
-#include <QtConcurrentRun>
+#include <QtConcurrent/QtConcurrentRun>
 
 #include <qextserialport.h>
 #include <QTcpSocket>
@@ -1154,7 +1154,7 @@ bool QDltMsg::getMsg(QByteArray &buf,bool withStorageHeader) {
         storageheader.pattern[1] = 'L';
         storageheader.pattern[2] = 'T';
         storageheader.pattern[3] = 0x01;
-        strncpy(storageheader.ecu,ecuid.toAscii().constData(),ecuid.size()>3?4:ecuid.size()+1);
+        strncpy(storageheader.ecu,ecuid.toLatin1().constData(),ecuid.size()>3?4:ecuid.size()+1);
         storageheader.microseconds = microseconds;
         storageheader.seconds = time;
         buf += QByteArray((const char *)&storageheader,sizeof(DltStorageHeader));
@@ -1181,7 +1181,7 @@ bool QDltMsg::getMsg(QByteArray &buf,bool withStorageHeader) {
 
     /* write standard header extra */
     if(mode == DltModeVerbose) {
-        strncpy(headerextra.ecu,ecuid.toAscii().constData(),ecuid.size()>3?4:ecuid.size()+1);
+        strncpy(headerextra.ecu,ecuid.toLatin1().constData(),ecuid.size()>3?4:ecuid.size()+1);
         buf += QByteArray((const char *)&(headerextra.ecu),sizeof(headerextra.ecu));
         headerextra.seid = DLT_SWAP_32(sessionid);
         buf += QByteArray((const char *)&(headerextra.seid),sizeof(headerextra.seid));
@@ -1191,8 +1191,8 @@ bool QDltMsg::getMsg(QByteArray &buf,bool withStorageHeader) {
 
     /* write extendedheader */
     if(mode == DltModeVerbose) {
-        strncpy(extendedheader.apid,apid.toAscii().constData(),apid.size()>3?4:apid.size()+1);
-        strncpy(extendedheader.ctid,ctid.toAscii().constData(),ctid.size()>3?4:ctid.size()+1);
+        strncpy(extendedheader.apid,apid.toLatin1().constData(),apid.size()>3?4:apid.size()+1);
+        strncpy(extendedheader.ctid,ctid.toLatin1().constData(),ctid.size()>3?4:ctid.size()+1);
         extendedheader.msin = 0;
         if(mode == DltModeVerbose) {
             extendedheader.msin |= DLT_MSIN_VERB;
